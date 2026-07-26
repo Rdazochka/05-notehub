@@ -20,7 +20,7 @@ export default function Modal({ onClose, children }: ModalProps) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
-
+  console.log("Modal rendered");
   return createPortal(
     <div
       className={css.backdrop}
