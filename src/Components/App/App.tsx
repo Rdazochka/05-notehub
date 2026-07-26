@@ -33,9 +33,11 @@ function App() {
         <Pagination />
       </header>
       <NoteList notes={notes} />
-      <Modal>
-        <NoteForm />
-      </Modal>
+      {isModalOpen && (
+        <Modal onClose={closeModal}>
+          <NoteForm onSuccess={closeModal} />
+        </Modal>
+      )}
     </div>
   );
 }
