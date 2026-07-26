@@ -10,6 +10,7 @@ export default defineConfig({
       presets: [reactCompilerPreset()],
     }),
   ],
+  base: "/05-notehub/",
   build: {
     sourcemap: true,
   },
