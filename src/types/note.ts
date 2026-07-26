@@ -13,10 +13,10 @@ export interface CreateNote {
   tag: NoteTag;
 }
 
-export interface UpdateNote {
-  title?: string;
-  content?: string;
-  tag?: NoteTag;
-}
+// export interface UpdateNote {
+//   title?: string;
+//   content?: string;
+//   tag?: NoteTag;
+// }
 
 export type NoteTag = "Work" | "Personal" | "Meeting" | "Shopping" | "Todo";

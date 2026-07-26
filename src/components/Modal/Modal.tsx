@@ -10,17 +10,22 @@ interface ModalProps {
 
 export default function Modal({ onClose, children }: ModalProps) {
   useEffect(() => {
+    document.body.style.overflow = "hidden";
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
     };
+
     document.addEventListener("keydown", handleKeyDown);
+
     return () => {
+      document.body.style.overflow = "";
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [onClose]);
-  console.log("Modal rendered");
+
   return createPortal(
     <div
       className={css.backdrop}

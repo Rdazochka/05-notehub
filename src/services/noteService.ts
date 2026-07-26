@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { Note, CreateNote, UpdateNote } from "../types/note";
+import type { Note, CreateNote } from "../types/note";
 // import SearchBox from "../Components/SearchBox/SearchBox";
 
 axios.defaults.baseURL = "https://notehub-public.goit.study/api";
@@ -30,14 +30,7 @@ export const createNote = async (payload: CreateNote): Promise<Note> => {
   return data;
 };
 
-export const updateNote = async ([noteId, payload]: [
-  Note["id"],
-  UpdateNote,
-]): Promise<Note> => {
-  const { data } = await axios.patch<Note>(`/notes/${noteId}`, payload);
-  return data;
-};
-
-export const deleteNote = async (noteId: Note["id"]): Promise<void> => {
-  await axios.delete(`/notes/${noteId}`);
+export const deleteNote = async (noteId: Note["id"]): Promise<Note> => {
+  const response = await axios.delete<Note>(`/notes/${noteId}`);
+  return response.data;
 };
